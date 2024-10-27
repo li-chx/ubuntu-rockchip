@@ -33,5 +33,7 @@ export CROSS_COMPILE=aarch64-linux-gnu-
 export CC=aarch64-linux-gnu-gcc
 export LANG=C
 
+sed -i 's/CONFIG_ARM64_VA_BITS_48/CONFIG_ARM64_VA_BITS_39/g' ./arch/arm64/configs/*
+
 # Compile the kernel into a deb package
 fakeroot debian/rules clean binary-headers binary-rockchip do_mainline_build=true
