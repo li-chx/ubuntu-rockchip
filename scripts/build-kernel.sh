@@ -34,6 +34,7 @@ export CC=aarch64-linux-gnu-gcc
 export LANG=C
 
 sed -i 's/CONFIG_ARM64_VA_BITS_48/CONFIG_ARM64_VA_BITS_39/g' `grep -rl VA_BITS ./arch`
+sed -i 's/CONFIG_ARM64_VA_BITS=48/CONFIG_ARM64_VA_BITS=39/' `grep -rl VA_BITS ./arch`
 
 # Compile the kernel into a deb package
 fakeroot debian/rules clean binary-headers binary-rockchip do_mainline_build=true
